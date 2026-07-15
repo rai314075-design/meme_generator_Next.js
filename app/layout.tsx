@@ -27,7 +27,18 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+         <head>
+        {/* //Here 
+        we link the bootstrap css file to our project so that we can use the bootstrap classes in our project
+        . */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className="bg-dark text-light">{children}</body>
     </html>
   );
 }
