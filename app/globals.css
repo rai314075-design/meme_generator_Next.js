@@ -1,4 +1,48 @@
-body{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
   background-color: black;
   color: white;
+  font-family: inherit;
+}
+
+/* Responsive utilities */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  .form-select,
+  .form-control {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+  
+  .btn {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 1.75rem !important;
+  }
 }

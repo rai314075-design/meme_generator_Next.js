@@ -72,11 +72,11 @@ export default function Home() {
 
   return (
     <div>
-      <div className="container text-center mt-5">
-        <h1 className="mb-4 text-primary">🔥 Meme Generator 🔥</h1>
+      <div className="container-fluid text-center mt-3 mt-sm-5 px-3 px-sm-0">
+        <h1 className="mb-3 mb-sm-4 text-primary">🔥 Meme Generator 🔥</h1>
 
         <div className="mb-3">
-          <select className="form-select" onChange={handleMemeChange}>
+          <select className="form-select w-100" onChange={handleMemeChange}>
             {memes.map((meme) => (
               <option key={meme.id} value={meme.id}>
                 {meme.name}
@@ -86,24 +86,31 @@ export default function Home() {
         </div>
 
         {selectedMeme && (
-          <div className="position-relative d-inline-block">
+          <div className="position-relative d-inline-block w-100" style={{ maxWidth: '500px' }}>
             <Image
               src={selectedMeme.url}
               alt={selectedMeme.name}
               width={500}
               height={500}
+              priority
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxWidth: '500px',
+                display: 'block'
+              }}
             />
-            <p className="position-absolute top-0 start-50 w-100 translate-middle-x text-black fw-bold fs-4">
+            <p className="position-absolute top-0 start-50 w-100 translate-middle-x text-black fw-bold fs-4" style={{ fontSize: '1.2rem', padding: '0.5rem' }}>
               {topText}
             </p>
-            <p className="position-absolute bottom-0 start-50 w-100 translate-middle-x text-black fw-bold fs-4">
+            <p className="position-absolute bottom-0 start-50 w-100 translate-middle-x text-black fw-bold fs-4" style={{ fontSize: '1.2rem', padding: '0.5rem' }}>
               {bottomText}
             </p>
           </div>
         )}
 
-        <div className="mt-3 row">
-          <div className="col">
+        <div className="mt-3 row g-2 g-sm-3" style={{ maxWidth: '500px', margin: '0 auto' }}>
+          <div className="col-12 col-sm-6">
             <input
               type="text"
               className="form-control"
@@ -112,7 +119,7 @@ export default function Home() {
               onChange={(e) => setTopText(e.target.value)}
             />
           </div>
-          <div className="col">
+          <div className="col-12 col-sm-6">
             <input
               type="text"
               className="form-control"
@@ -123,7 +130,7 @@ export default function Home() {
           </div>
         </div>
 
-        <button className="btn btn-success mt-3" onClick={downloadMeme}>
+        <button className="btn btn-success mt-3 w-100" style={{ maxWidth: '500px', margin: '1rem auto' }} onClick={downloadMeme}>
           Download Meme
         </button>
       </div>
